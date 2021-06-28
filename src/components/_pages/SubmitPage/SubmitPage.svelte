@@ -7,6 +7,7 @@
     if (reason != "") {
       await firebase.firestore().collection("reasons").add({
         reason: reason,
+        approved: false,
       });
       reason = "";
     }

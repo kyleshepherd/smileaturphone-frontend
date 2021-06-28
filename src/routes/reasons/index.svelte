@@ -7,7 +7,11 @@
   let reasonIndex = -1;
 
   onMount(async () => {
-    const reasonQuery = await firebase.firestore().collection("reasons").get();
+    const reasonQuery = await firebase
+      .firestore()
+      .collection("reasons")
+      .where("approved", "==", true)
+      .get();
 
     reasons = reasonQuery.docs.map(reason => ({
       reason: reason.data().reason,

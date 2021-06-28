@@ -124,11 +124,11 @@
   <div class="header--wrapper">
     <h1 class="header">Reasons To <br />Smile At Your Phone</h1>
   </div>
-  {#if reasonIndex != -1}
-    <div class="reasons--wrapper">
-      <div class="reasons--button">
-        <a class="button" href="/submit">Submit<br />Your Reason</a>
-      </div>
+  <div class="reasons--wrapper">
+    <div class="reasons--button">
+      <a class="button" href="/submit">Submit<br />Your Reason</a>
+    </div>
+    {#if reasonIndex != -1}
       <div class="phone">
         <span class="phone--header">Message</span>
         <span class="phone--header">Today 10:09pm</span>
@@ -143,6 +143,6 @@
           >Find<br />More Reasons</button
         >
       </div>
-    </div>
-  {/if}
+    {/if}
+  </div>
 </div>
