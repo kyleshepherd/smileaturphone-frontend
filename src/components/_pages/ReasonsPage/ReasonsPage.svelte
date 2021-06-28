@@ -83,6 +83,51 @@
     font-size: 14px;
   }
 
+  .messages {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .phone--other-message {
+    background: #e6e5eb;
+    border-radius: 15px;
+    padding: 10px 15px;
+    color: white;
+    margin-top: 25px;
+    position: relative;
+    align-self: flex-start;
+    min-height: 57px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .phone--other-message:after {
+    width: 0;
+    height: 0;
+    width: 0;
+    height: 0;
+    border-top: 15px solid transparent;
+    border-bottom: 0px solid transparent;
+    border-left: 15px solid #e6e5eb;
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+
+  .message-dot {
+    height: 12.5px;
+    width: 12.5px;
+    background: #bdbcc2;
+    border-radius: 100%;
+  }
+
+  .message-dot:not(:last-child) {
+    margin-right: 5px;
+  }
+
   .phone--message {
     background: #397ef6;
     border-radius: 15px;
@@ -90,7 +135,6 @@
     color: white;
     font-size: 25px;
     letter-spacing: -0.04em;
-    float: right;
     margin-top: 25px;
     position: relative;
   }
@@ -117,6 +161,9 @@
       order: -1;
       align-self: flex-start;
     }
+    .reasons--button:first-of-type {
+      margin-right: 15px;
+    }
   }
 </style>
 
@@ -134,10 +181,17 @@
       <div class="phone">
         <span class="phone--header">Message</span>
         <span class="phone--header">Today 10:09pm</span>
-        <div class="phone--message">
-          <span class="phone--message_text">
-            {reasons[reasonIndex].reason.substring(0, 90)}
-          </span>
+        <div class="messages">
+          <div class="phone--message">
+            <span class="phone--message_text">
+              {reasons[reasonIndex].reason.substring(0, 90)}
+            </span>
+          </div>
+          <div class="phone--other-message">
+            <div class="message-dot" />
+            <div class="message-dot" />
+            <div class="message-dot" />
+          </div>
         </div>
       </div>
       <div class="reasons--button">
