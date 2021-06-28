@@ -1,4 +1,4 @@
-# sapper-template
+# smileaturphone-frontend
 
 The default template for setting up a [Sapper](https://github.com/sveltejs/sapper) project. Can use either Rollup or webpack as bundler.
 
@@ -148,7 +148,7 @@ npm install -D @sveltejs/svelte-virtual-list
 
 ## Troubleshooting
 
-Using Windows and WSL2? 
+Using Windows and WSL2?
 
 If your project lives outside the WSL root directory, [this limitation](https://github.com/microsoft/WSL/issues/4169) is known to cause live-reloading to fail. See [this issue](https://github.com/sveltejs/sapper/issues/1150) for details.
 
