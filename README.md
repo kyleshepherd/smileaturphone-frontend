@@ -1,8 +1,4 @@
-*Looking for a shareable component template? Go here --> [sveltejs/component-template](https://github.com/sveltejs/component-template)*
-
----
-
-# svelte app
+# smileaturphone-frontend
 
 This is a project template for [Svelte](https://svelte.dev) apps. It lives at https://github.com/sveltejs/template.
 
@@ -102,5 +98,3 @@ Then, from within your project folder:
 ```bash
 npm run build
 surge public my-project.surge.sh
-```
-# smileaturphone-frontend
