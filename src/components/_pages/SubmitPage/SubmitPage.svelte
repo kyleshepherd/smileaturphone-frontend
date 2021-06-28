@@ -46,9 +46,18 @@
   .form {
     margin-top: 25px;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: center;
     text-align: center;
+    flex-wrap: wrap;
+  }
+
+  .reason-input--wrapper {
+    flex-basis: 100%;
+    margin-bottom: 20px;
+  }
+
+  .form > button {
+    margin-right: 20px;
   }
 
   .reason-input {
@@ -66,10 +75,6 @@
   .reason-input:focus {
     outline: none;
     border: 2px solid hsl(46, 70%, 64%);
-  }
-
-  .form > * {
-    margin: 0 auto 25px;
   }
 
   @media only screen and (max-width: 1100px) {
@@ -106,14 +111,16 @@
   </div>
   <div class="form">
     {#if !submitted}
-      <input
-        class="reason-input"
-        type="text"
-        name="reason"
-        bind:value={reason}
-        placeholder="what's your reason?"
-        maxlength="75"
-      />
+      <div class="reason-input--wrapper">
+        <input
+          class="reason-input"
+          type="text"
+          name="reason"
+          bind:value={reason}
+          placeholder="what's your reason?"
+          maxlength="75"
+        />
+      </div>
       <button class="button" type="button" on:click={submitReason}
         >Submit</button
       >
