@@ -5,9 +5,9 @@
 <style>
 	main {
 		position: relative;
-		max-width: 56em;
-		background-color: white;
-		padding: 2em;
+		background: radial-gradient(29.299999999999997% 50% at 50% 50%, #d2d2d0 0%, hsl(46, 70%, 64%) 100%);
+		height: 100vh;
+		width: 100vw;
 		margin: 0 auto;
 		box-sizing: border-box;
 	}
