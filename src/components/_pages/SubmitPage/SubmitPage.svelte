@@ -40,7 +40,8 @@
     text-align: center;
     text-transform: uppercase;
     color: white;
-    margin-bottom: 0;
+    flex-basis: 100%;
+    margin-bottom: 20px;
   }
 
   .form {
