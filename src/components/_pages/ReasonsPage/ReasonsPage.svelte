@@ -137,6 +137,7 @@
     letter-spacing: -0.04em;
     margin-top: 25px;
     position: relative;
+    text-transform: lowercase;
   }
 
   .phone--message:after {
