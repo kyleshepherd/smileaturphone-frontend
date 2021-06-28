@@ -18,7 +18,7 @@
   }
 
   .form {
-    margin-top: 45px;
+    margin-top: 25px;
     display: flex;
     flex-direction: column;
     align-items: center;

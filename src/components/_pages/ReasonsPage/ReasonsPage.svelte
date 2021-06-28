@@ -49,7 +49,7 @@
   }
 
   .reasons--wrapper {
-    margin-top: 45px;
+    margin-top: 25px;
     display: flex;
     justify-content: center;
     flex: 1;

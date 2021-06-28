@@ -15,6 +15,7 @@
     margin: 0 auto;
     padding: 0 10px;
     box-sizing: border-box;
+    overflow: hidden;
   }
 </style>
 
