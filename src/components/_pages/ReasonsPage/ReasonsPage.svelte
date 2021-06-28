@@ -101,6 +101,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    max-width: 90%;
   }
 
   .phone--other-message:after {
@@ -138,6 +139,7 @@
     margin-top: 25px;
     position: relative;
     text-transform: lowercase;
+    max-width: 90%;
   }
 
   .phone--message:after {
