@@ -2,6 +2,7 @@
   import firebase from "firebase/app";
 
   let reason = "";
+  let submitted = false;
 
   const submitReason = async () => {
     if (reason != "") {
@@ -10,6 +11,7 @@
         approved: false,
       });
       reason = "";
+      submitted = true;
     }
   };
 </script>
@@ -29,6 +31,16 @@
     letter-spacing: -0.04em;
     line-height: 1.2;
     margin-bottom: 5px;
+  }
+
+  .subheader {
+    font-size: 40px;
+    letter-spacing: -0.075em;
+    line-height: 1.2;
+    text-align: center;
+    text-transform: uppercase;
+    color: white;
+    margin-bottom: 0;
   }
 
   .form {
@@ -63,6 +75,9 @@
     .header {
       font-size: 85px;
     }
+    .subheader {
+      font-size: 30px;
+    }
   }
 
   @media only screen and (max-width: 600px) {
@@ -76,6 +91,9 @@
     .header {
       font-size: 50px;
     }
+    .subheader {
+      font-size: 20px;
+    }
   }
 </style>
 
@@ -84,15 +102,21 @@
     <h1 class="header">Reasons To <br />Smile At Your Phone</h1>
   </div>
   <div class="form">
-    <input
-      class="reason-input"
-      type="text"
-      name="reason"
-      bind:value={reason}
-      placeholder="what's your reason?"
-      maxlength="75"
-    />
-    <button class="button" type="button" on:click={submitReason}>Submit</button>
+    {#if !submitted}
+      <input
+        class="reason-input"
+        type="text"
+        name="reason"
+        bind:value={reason}
+        placeholder="what's your reason?"
+        maxlength="75"
+      />
+      <button class="button" type="button" on:click={submitReason}
+        >Submit</button
+      >
+    {:else}
+      <h2 class="subheader">Thanks for submitting your reason to smile</h2>
+    {/if}
     <a class="button" href="/reasons">View<br />Others</a>
   </div>
 </div>
