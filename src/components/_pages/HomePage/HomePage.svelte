@@ -64,7 +64,7 @@
 
 <div class="home">
   <div class="header--wrapper">
-    <h1 class="header">Reasons To <br />Smile At Your Phone</h1>
+    <a href="/"><h1 class="header">Reasons To <br />Smile At Your Phone</h1></a>
     <h2 class="subheader">We all need a reason to smile 🥰</h2>
   </div>
   <div class="buttons--wrapper">

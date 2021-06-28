@@ -59,6 +59,7 @@
     padding: 10px 25px;
     font-size: 30px;
     width: 500px;
+    letter-spacing: -0.04em;
     transition: all 0.25s ease;
   }
 
@@ -99,7 +100,9 @@
 
 <div class="home">
   <div class="header--wrapper">
-    <h1 class="header">Reasons To <br />Smile At Your Phone</h1>
+    <a href="/">
+      <h1 class="header">Reasons To <br />Smile At Your Phone</h1>
+    </a>
   </div>
   <div class="form">
     {#if !submitted}

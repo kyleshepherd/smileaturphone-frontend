@@ -122,7 +122,9 @@
 
 <div class="reasons">
   <div class="header--wrapper">
-    <h1 class="header">Reasons To <br />Smile At Your Phone</h1>
+    <a href="/">
+      <h1 class="header">Reasons To <br />Smile At Your Phone</h1>
+    </a>
   </div>
   <div class="reasons--wrapper">
     <div class="reasons--button">
