@@ -1,4 +1,17 @@
-<script></script>
+<script>
+  import firebase from "firebase/app";
+
+  let reason = "";
+
+  const submitReason = async () => {
+    if (reason != "") {
+      await firebase.firestore().collection("reasons").add({
+        reason: reason,
+      });
+      reason = "";
+    }
+  };
+</script>
 
 <style>
   .home {
@@ -74,7 +87,9 @@
       class="reason-input"
       type="text"
       name="reason"
+      bind:value={reason}
       placeholder="what's your reason?"
+      maxlength="75"
     />
     <button class="button" type="button" on:click={submitReason}>Submit</button>
     <a class="button" href="/reasons">View<br />Others</a>

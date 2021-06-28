@@ -14,22 +14,36 @@ const dev = mode === 'development';
 const legacy = !!process.env.SAPPER_LEGACY_BUILD;
 
 const onwarn = (warning, onwarn) =>
-	(warning.code === 'MISSING_EXPORT' && /'preload'/.test(warning.message)) ||
-	(warning.code === 'CIRCULAR_DEPENDENCY' && /[/\\]@sapper[/\\]/.test(warning.message)) ||
-	onwarn(warning);
+  (warning.code === "MISSING_EXPORT" && /'preload'/.test(warning.message)) ||
+  (warning.code === "CIRCULAR_DEPENDENCY" &&
+    /[/\\]@sapper[/\\]/.test(warning.message)) ||
+  warning.code === "THIS_IS_UNDEFINED" ||
+  onwarn(warning);
+
+  function getEnv(key) {
+    return JSON.stringify(process.env[`SAUP_${key}`]);
+  }
+
+  const replaceConfig = {
+  preventAssignment: true,
+  'process.browser': true,
+  'process.env.NODE_ENV': JSON.stringify(mode),
+  "process.env.FIREBASE_API_KEY": getEnv("FIREBASE_API_KEY"),
+  "process.env.FIREBASE_AUTH_DOMAIN": getEnv("FIREBASE_AUTH_DOMAIN"),
+  "process.env.FIREBASE_PROJECT_ID": getEnv("FIREBASE_PROJECT_ID"),
+  "process.env.FIREBASE_STORAGE_BUCKET": getEnv("FIREBASE_STORAGE_BUCKET"),
+  "process.env.FIREBASE_MESSAGING_SENDER_ID": getEnv(
+    "FIREBASE_MESSAGING_SENDER_ID",
+    ),
+  "process.env.FIREBASE_APP_ID": getEnv("FIREBASE_APP_ID"),
+  };
 
 export default {
 	client: {
 		input: config.client.input(),
 		output: config.client.output(),
 		plugins: [
-			replace({
-				preventAssignment: true,
-				values:{
-					'process.browser': true,
-					'process.env.NODE_ENV': JSON.stringify(mode)
-				},
-			}),
+			replace({...replaceConfig}),
 			svelte({
 				compilerOptions: {
 					dev,
@@ -77,11 +91,8 @@ export default {
 		output: config.server.output(),
 		plugins: [
 			replace({
-				preventAssignment: true,
-				values:{
+				...replaceConfig,
 					'process.browser': false,
-					'process.env.NODE_ENV': JSON.stringify(mode)
-				},
 			}),
 			svelte({
 				compilerOptions: {
@@ -111,13 +122,7 @@ export default {
 		output: config.serviceworker.output(),
 		plugins: [
 			resolve(),
-			replace({
-				preventAssignment: true,
-				values:{
-					'process.browser': true,
-					'process.env.NODE_ENV': JSON.stringify(mode)
-				},
-			}),
+			replace({...replaceConfig}),
 			commonjs(),
 			!dev && terser()
 		],

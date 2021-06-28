@@ -1,9 +1,9 @@
 <script>
   import { onMount } from "svelte";
 
-  export let reasons = ["photos of my dog", "texts from bae"];
+  export let reasons = [];
 
-  let reasonIndex = -1;
+  export let reasonIndex = -1;
 
   onMount(() => {
     if (reasons && reasons.length > 0) {
@@ -12,8 +12,12 @@
   });
 
   const newReason = () => {
+    let oldReason = reasonIndex;
     if (reasons && reasons.length > 0) {
       reasonIndex = Math.floor(Math.random() * reasons.length);
+      if (oldReason === reasonIndex) {
+        newReason();
+      }
     }
   };
 </script>
@@ -130,7 +134,7 @@
         <span class="phone--header">Today 10:09pm</span>
         <div class="phone--message">
           <span class="phone--message_text">
-            {reasons[reasonIndex].substring(0, 90)}
+            {reasons[reasonIndex].reason.substring(0, 90)}
           </span>
         </div>
       </div>
