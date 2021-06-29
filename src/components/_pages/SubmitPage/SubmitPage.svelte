@@ -122,11 +122,14 @@
           maxlength="75"
         />
       </div>
-      <button class="button" type="button" on:click={submitReason}
-        >Submit</button
-      >
+      <button class="button" type="button" on:click={submitReason}>
+        Submit
+      </button>
     {:else}
       <h2 class="subheader">Thanks for submitting your reason to smile</h2>
+      <button class="button" type="button" on:click={() => (submitted = false)}>
+        Submit<br />another reason
+      </button>
     {/if}
     <a class="button" href="/reasons">View<br />Others</a>
   </div>
