@@ -38,8 +38,11 @@
 </style>
 
 <main>
-  <a href="https://twitter.com/kyleshepherddev?lang=en" class="kyle-link"
-    >Created by Kyle Shepherd</a
+  <a
+    href="https://twitter.com/kyleshepherddev?lang=en"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="kyle-link">Created by Kyle Shepherd</a
   >
   <a href="/why" class="why-link">why?</a>
   <slot />
